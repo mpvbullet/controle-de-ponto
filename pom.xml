@@ -4,11 +4,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>br.com.syntax</groupId>
-    <artifactId>ponto-inteligente</artifactId>
+    <artifactId>controle-de-ponto</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>PontoInteligente</name>
+    <name>Controle de Ponto</name>
     <description>Projeto de teste usando Spring Boot</description>
 
     <parent>
@@ -40,6 +40,25 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.2.2</version>
+            <scope>runtime</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+        </dependency>
+
+
     </dependencies>
 
     <build>
