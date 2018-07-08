@@ -1,11 +1,11 @@
 
 
 CREATE TABLE IF NOT EXISTS empresa (
-    id serial NOT NULL,
-    razao_social text COLLATE NOT NULL,
-    cnpj "char"[] NOT NULL,
-    data_criacao timestamp(4) NOT NULL,
-    CONSTRAINT empresa_pk PRIMARY KEY (id)
+  id serial NOT NULL,
+  razao_social text NOT NULL,
+  cnpj "char"[] NOT NULL,
+  data_criacao timestamp(4) NOT NULL,
+  CONSTRAINT empresa_pk PRIMARY KEY (id)
 );
 
 CREATE TABLE IF NOT EXISTS funcionario (
@@ -16,17 +16,17 @@ CREATE TABLE IF NOT EXISTS funcionario (
   email text NOT NULL,
   senha text NOT NULL,
   perfil text NOT NULL,
-  quantidade_horas_almoco numeric DEFAULT NULL,
-  quantidade_horas_dia numeric DEFAULT NULL,
+  quantidade_horas_almoco numeric NULL,
+  quantidade_horas_dia numeric NULL,
 
-  valor_hora numeric(19,2) DEFAULT NULL,
+  valor_hora numeric(19,2) NULL,
   data_atualizacao timestamp(4) NOT NULL,
   data_criacao timestamp(4) NOT NULL,
-  empresa_id serial DEFAULT NULL,
+  empresa_id serial NOT NULL,
 
   CONSTRAINT funcionario_pk PRIMARY KEY (id),
   CONSTRAINT empresa_fk FOREIGN KEY (empresa_id)
-    REFERENCES empresa (id) MATCH SIMPLE
+  REFERENCES empresa (id) MATCH SIMPLE
 );
 
 CREATE TABLE IF NOT EXISTS lancamento (
@@ -34,13 +34,13 @@ CREATE TABLE IF NOT EXISTS lancamento (
   data timestamp(4) NOT NULL,
   data_atualizacao timestamp(4) NOT NULL,
   data_criacao timestamp(4) NOT NULL,
-  descricao text DEFAULT NULL,
-  localizacao text DEFAULT NULL,
+  descricao text  NULL,
+  localizacao text  NULL,
   tipo text NOT NULL,
-  funcionario_id serial DEFAULT NULL,
+  funcionario_id serial NOT NULL,
 
   CONSTRAINT lancamento_pk PRIMARY KEY (id),
   CONSTRAINT funcionario_fk FOREIGN KEY (funcionario_id)
-    REFERENCES funcionario (id) MATCH SIMPLE
+  REFERENCES funcionario (id) MATCH SIMPLE
 );
 
