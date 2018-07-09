@@ -19,6 +19,12 @@ public class Lancamento implements Serializable {
   private TipoDeControle tipo;
   private Funcionario funcionario;
 
+  public Lancamento() {}
+
+  public Lancamento(Funcionario funcionario) {
+    this.funcionario = funcionario;
+  }
+
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   public Long getId() {
