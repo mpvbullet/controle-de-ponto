@@ -45,11 +45,11 @@ public class LancamentoServiceTest {
     Assert.assertNotNull(lancamentos);
   }
 
-  @Test
-  public void testBuscaPorFuncionarioComPaginacao() {
-    Page<Lancamento> lancamentos = this.service.getByFuncionario( new Funcionario(), new PageRequest(0, 100) );
-    Assert.assertNotNull(lancamentos);
-  }
+//  @Test
+//  public void testBuscaPorFuncionarioComPaginacao() {
+//    Page<Lancamento> lancamentos = this.service.getByFuncionario( new Funcionario(), new PageRequest(0, 100) );
+//    Assert.assertNotNull(lancamentos);
+//  }
 
   @Test
   public void testBuscaPeloId() {
