@@ -14,6 +14,14 @@ public class Empresa {
   private Date dataCriacao;
   private List<Funcionario> funcionarios;
 
+  public Empresa() {}
+
+  public Empresa(String razaoSocial, String cnpj) {
+    super();
+    this.razaoSocial = razaoSocial;
+    this.cnpj = cnpj;
+  }
+
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   public Long getId() {
