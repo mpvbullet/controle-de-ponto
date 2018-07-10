@@ -36,8 +36,7 @@ public class LancamentoDao implements LancamentoService {
   @Override
   public Optional<Lancamento> getById(Long id) {
     log.debug("Buscando o lançamento de código: {}", id);
-    Lancamento lancamento = this.respository.getOne(id);
-    return Optional.ofNullable(lancamento);
+    return this.respository.findById(id);
   }
 
   @Override

@@ -33,8 +33,7 @@ public class FuncionarioDao implements FuncionarioService {
   @Override
   public Optional<Funcionario> buscaPorId(Long id) {
     log.debug("Retornando o funcionário que possui o id: {}", id);
-    Funcionario funcionario = this.repository.getOne(id);
-    return Optional.ofNullable(funcionario);
+    return this.repository.findById(id);
   }
 
   @Override
