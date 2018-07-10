@@ -3,7 +3,7 @@
 CREATE TABLE IF NOT EXISTS empresa (
   id serial NOT NULL,
   razao_social text NOT NULL,
-  cnpj "char"[] NOT NULL,
+  cnpj text NOT NULL,
   data_criacao timestamp(4) NOT NULL,
   CONSTRAINT empresa_pk PRIMARY KEY (id)
 );
@@ -21,7 +21,7 @@ CREATE TABLE IF NOT EXISTS funcionario (
 
   valor_hora numeric(19,2) NULL,
   data_atualizacao timestamp(4) NOT NULL,
-  data_criacao timestamp(4) NOT NULL,
+  data_admissao timestamp(4) NOT NULL,
   empresa_id serial NOT NULL,
 
   CONSTRAINT funcionario_pk PRIMARY KEY (id),
