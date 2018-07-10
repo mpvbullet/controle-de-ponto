@@ -1,6 +1,7 @@
 package br.com.syntax.controledeponto.entities;
 
 import br.com.syntax.controledeponto.enums.Perfil;
+import br.com.syntax.controledeponto.utils.PasswordUtils;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -62,7 +63,7 @@ public class Funcionario implements Serializable {
   }
 
   public void setSenha(String senha) {
-    this.senha = senha;
+    this.senha = PasswordUtils.geraBCrypt(senha);
   }
 
   @Column(name = "cpf", nullable = false)
