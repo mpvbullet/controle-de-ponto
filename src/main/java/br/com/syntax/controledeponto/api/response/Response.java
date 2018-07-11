@@ -5,15 +5,15 @@ import java.util.List;
 
 public class Response<T> {
 
-  private T retorno;
+  private T result;
   private List<String> erros;
 
   public T getRetorno() {
-    return retorno;
+    return result;
   }
 
   public void setRetorno(T retorno) {
-    this.retorno = retorno;
+    this.result = retorno;
   }
 
   public List<String> getErros() {
