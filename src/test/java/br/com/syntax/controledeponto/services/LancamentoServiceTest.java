@@ -35,7 +35,7 @@ public class LancamentoServiceTest {
   public void setUp() {
     BDDMockito.given( this.respository.findByFuncionarioId(Mockito.anyLong()) ).willReturn( new ArrayList<>());
     BDDMockito.given( this.respository.findByFuncionarioId(Mockito.anyLong(), Mockito.any(PageRequest.class)) ).willReturn( new PageImpl<Lancamento>( new ArrayList<>()));
-    BDDMockito.given( this.respository.getOne(Mockito.anyLong())).willReturn( new Lancamento() );
+    BDDMockito.given( this.respository.findById(Mockito.anyLong())).willReturn( Optional.of(new Lancamento()) );
     BDDMockito.given( this.respository.save(Mockito.any(Lancamento.class))).willReturn( new Lancamento() );
   }
 

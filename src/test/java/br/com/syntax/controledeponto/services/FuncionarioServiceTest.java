@@ -33,7 +33,7 @@ public class FuncionarioServiceTest {
   public void setUp() {
     BDDMockito.given(  this.repository.getByCpf(Mockito.anyString()) ).willReturn( new Funcionario() );
     BDDMockito.given(  this.repository.getByEmail(Mockito.anyString()) ).willReturn( new Funcionario() );
-    BDDMockito.given(  this.repository.getOne(Mockito.anyLong()) ).willReturn( new Funcionario() );
+    BDDMockito.given(  this.repository.findById(Mockito.anyLong()) ).willReturn( Optional.of(new Funcionario()) );
     BDDMockito.given(  this.repository.save(Mockito.any(Funcionario.class)) ).willReturn( new Funcionario() );
   }
 
