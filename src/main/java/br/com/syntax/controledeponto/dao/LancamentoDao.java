@@ -7,6 +7,8 @@ import br.com.syntax.controledeponto.services.LancamentoService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
@@ -21,24 +23,28 @@ public class LancamentoDao implements LancamentoService {
 
   @Autowired private LancamentoRespository respository;
 
+  @Cacheable("lancamentoPorFuncionario")
   @Override
   public List<Lancamento> getByFuncionario(Funcionario funcionario) {
     log.debug("Buscando os lançamentos de ponto do funcionário: {}", funcionario.getNome());
     return this.respository.findByFuncionarioId(funcionario.getId());
   }
 
+  @Cacheable("lancamentoPorFuncionario")
   @Override
   public Page<Lancamento> getByFuncionario(Funcionario funcionario, PageRequest page) {
     log.debug("Buscando os {} primeiros lançamentos de ponto do funcionário: {}", page.getPageNumber(), funcionario.getNome());
     return this.respository.findByFuncionarioId(funcionario.getId(), page);
   }
 
+  @Cacheable("lancamentoPorId")
   @Override
   public Optional<Lancamento> getById(Long id) {
     log.debug("Buscando o lançamento de código: {}", id);
     return this.respository.findById(id);
   }
 
+  @CachePut("lancamentoPorId")
   @Override
   public Lancamento grava(Lancamento lancamento) {
     return this.respository.save(lancamento);
