@@ -81,6 +81,7 @@ public class Lancamento implements Serializable {
     this.dataAtualizacao = dataAtualizacao;
   }
 
+  @Enumerated(EnumType.STRING)
   @Column(name = "tipo", nullable = false)
   public TipoDeControle getTipo() {
     return tipo;
