@@ -1,0 +1,12 @@
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="ehcache.xsd">
+	<cache name="lancamentoPorFuncionario"
+		maxEntriesLocalHeap="200"
+		timeToLiveSeconds="3600">
+	</cache>
+
+	<cache name="lancamentoPorId"
+		maxEntriesLocalHeap="200"
+		timeToLiveSeconds="3600">
+	</cache>
+</ehcache>
