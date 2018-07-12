@@ -14,6 +14,7 @@ public class FabricaDeModelsParaTeste {
 
   public static Empresa criarEmpresa(String cnpj) {
     Empresa empresa = new Empresa("Syntax Tech", cnpj);
+    empresa.setId(1L);
     return empresa;
   }
 
