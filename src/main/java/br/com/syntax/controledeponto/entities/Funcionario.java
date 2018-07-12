@@ -63,7 +63,7 @@ public class Funcionario implements Serializable {
   }
 
   public void setSenha(String senha) {
-    this.senha = PasswordUtils.geraBCrypt(senha);
+    this.senha = senha;
   }
 
   @Column(name = "cpf", nullable = false)
