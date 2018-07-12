@@ -8,12 +8,12 @@ public class Response<T> {
   private T result;
   private List<String> erros;
 
-  public T getRetorno() {
+  public T getResult() {
     return result;
   }
 
-  public void setRetorno(T retorno) {
-    this.result = retorno;
+  public void setResult(T result) {
+    this.result = result;
   }
 
   public List<String> getErros() {

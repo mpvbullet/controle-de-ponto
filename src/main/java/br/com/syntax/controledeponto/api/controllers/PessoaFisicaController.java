@@ -55,7 +55,7 @@ public class PessoaFisicaController {
     this.funcionarioService.salva(funcionario);
 
 
-    response.setRetorno( this.converterParaPessoaFisicaDto(funcionario) );
+    response.setResult( this.converterParaPessoaFisicaDto(funcionario) );
     return ResponseEntity.ok(response);
   }
 

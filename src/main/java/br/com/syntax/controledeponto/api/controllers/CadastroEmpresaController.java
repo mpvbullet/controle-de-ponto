@@ -57,7 +57,7 @@ public class CadastroEmpresaController {
     funcionario.setEmpresa(empresa);
 
     this.funcionarioService.salva(funcionario);
-    response.setRetorno( this.converterParaEmpresaDto(funcionario) );
+    response.setResult( this.converterParaEmpresaDto(funcionario) );
     return ResponseEntity.ok(response);
   }
 

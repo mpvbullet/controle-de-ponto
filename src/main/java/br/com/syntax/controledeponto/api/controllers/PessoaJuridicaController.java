@@ -31,7 +31,7 @@ public class PessoaJuridicaController {
       return ResponseEntity.badRequest().body(response);
     }
 
-    response.setRetorno( this.converterEmpresaParaDto(empresa.get()) );
+    response.setResult( this.converterEmpresaParaDto(empresa.get()) );
     return ResponseEntity.ok(response);
   }
 

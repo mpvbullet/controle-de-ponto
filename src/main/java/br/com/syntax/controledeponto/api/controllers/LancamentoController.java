@@ -45,7 +45,7 @@ public class LancamentoController {
     Funcionario funcionario = new Funcionario();
     funcionario.setId(id);
     Page<Lancamento> lancamentos = this.lancamentoService.getByFuncionario(funcionario, pageRequest);
-    response.setRetorno( lancamentos.map( lancamento -> this.converterParaLancamentoDto(lancamento) ) );
+    response.setResult( lancamentos.map( lancamento -> this.converterParaLancamentoDto(lancamento) ) );
 
     return ResponseEntity.ok(response);
   }
@@ -61,7 +61,7 @@ public class LancamentoController {
       return ResponseEntity.badRequest().body(response);
     }
 
-    response.setRetorno( this.converterParaLancamentoDto(lancamentoOptional.get()) );
+    response.setResult( this.converterParaLancamentoDto(lancamentoOptional.get()) );
     return ResponseEntity.ok(response);
   }
 
@@ -81,7 +81,7 @@ public class LancamentoController {
       lancamento.setFuncionario(funcionarioOptional.get());
       this.lancamentoService.grava(lancamento);
 
-      response.setRetorno( this.converterParaLancamentoDto(lancamento) );
+      response.setResult( this.converterParaLancamentoDto(lancamento) );
       return ResponseEntity.ok(response);
     } catch(Exception e) {
       response.getErros().add(e.getMessage());
