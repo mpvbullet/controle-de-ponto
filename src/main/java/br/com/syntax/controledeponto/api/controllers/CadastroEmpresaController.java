@@ -8,6 +8,7 @@ import br.com.syntax.controledeponto.entities.Funcionario;
 import br.com.syntax.controledeponto.enums.Perfil;
 import br.com.syntax.controledeponto.services.EmpresaService;
 import br.com.syntax.controledeponto.services.FuncionarioService;
+import br.com.syntax.controledeponto.utils.PasswordUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -86,7 +87,7 @@ public class CadastroEmpresaController {
     funcionario.setNome(cadastroEmpresaDto.getNome());
     funcionario.setCpf(cadastroEmpresaDto.getCpf());
     funcionario.setEmail(cadastroEmpresaDto.getEmail());
-    funcionario.setSenha(cadastroEmpresaDto.getSenha());
+    funcionario.setSenha( PasswordUtils.geraBCrypt(cadastroEmpresaDto.getSenha()) );
     funcionario.setPerfil(Perfil.ADMIN);
     return funcionario;
   }

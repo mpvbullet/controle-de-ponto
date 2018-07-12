@@ -8,6 +8,7 @@ import br.com.syntax.controledeponto.entities.Funcionario;
 import br.com.syntax.controledeponto.enums.Perfil;
 import br.com.syntax.controledeponto.services.EmpresaService;
 import br.com.syntax.controledeponto.services.FuncionarioService;
+import br.com.syntax.controledeponto.utils.PasswordUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -81,7 +82,7 @@ public class PessoaFisicaController {
     funcionario.setNome(pessoaFisicaDto.getNome());
     funcionario.setCpf(pessoaFisicaDto.getCpf());
     funcionario.setEmail(pessoaFisicaDto.getEmail());
-    funcionario.setSenha(pessoaFisicaDto.getSenha());
+    funcionario.setSenha( PasswordUtils.geraBCrypt(pessoaFisicaDto.getSenha()) );
     funcionario.setPerfil(Perfil.USUARIO_COMUM);
     funcionario.setValorHora(pessoaFisicaDto.getValorHora());
     funcionario.setQuantidadeHorasAlmoco(pessoaFisicaDto.getQuantidadeHorasAlmoco());
